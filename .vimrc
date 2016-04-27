@@ -20,7 +20,8 @@ set smartcase
 set hlsearch
 set visualbell
 set noerrorbells
-set expandtab
+"set expandtab
+"norme
 set backspace=indent,eol,start
 :nmap <F4> :nohlsearch<CR>
 nnoremap <f2> :0r ~/dev/prog/header/header.txt<cr>:%s/!!DATEEE!!/\=strftime("%d-%m-%Y")<cr>
