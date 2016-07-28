@@ -1,6 +1,6 @@
 execute pathogen#infect()
-:set background=dark
 :set t_Co=256
+:set background=light
 :syntax on
 :filetype plugin indent on
 :colorscheme molokai
@@ -21,10 +21,9 @@ set hlsearch
 set visualbell
 set noerrorbells
 "set expandtab
-"norme
 set backspace=indent,eol,start
 :nmap <F4> :nohlsearch<CR>
-nnoremap <f2> :0r ~/dev/prog/header/header.txt<cr>:%s/!!DATEEE!!/\=strftime("%d-%m-%Y")<cr>
+nnoremap <f3> :0r ~/dev/prog/header/header.txt<cr>:%s/!!DATEEE!!/\=strftime("%d-%m-%Y")<cr>
 let mapleader=","
 map <up> <nop>
 map <down> <nop>
@@ -54,3 +53,6 @@ map <leader>f <C-W><RIGHT>
 map <leader>a <C-W><LEFT>
 map <leader>s <C-W><DOWN>
 map <leader>d <C-W><UP>
+hi Normal ctermbg=none
+"let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='term'
