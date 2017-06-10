@@ -1,3 +1,15 @@
+" **************************************************************************** "
+"                                                                              "
+"                                                                              "
+"    .vimrc                                                                    "
+"                                                         ________             "
+"    By: bulliby <wellsguillaume@gmail.com>              /   ____/_  _  __     "
+"                                                       /    \  _\ \/ \/ /     "
+"    Created: 2017/06/10 15:32:28 by bulliby            \     \_\ \     /      "
+"    Updated: 2017/06/10 15:36:14 by bulliby             \________/\/\_/       "
+"                                                                              "
+" **************************************************************************** "
+
 execute pathogen#infect()
 :set t_Co=256
 :set background=light
@@ -13,34 +25,24 @@ execute pathogen#infect()
 :set shiftwidth=4
 :set softtabstop=4
 set ruler 
-set wrap
 set scrolloff=3
 set title
 set smartcase
 set hlsearch
 set visualbell
 set noerrorbells
-"set expandtab
+set wrap!
 set backspace=indent,eol,start
-:nmap <F4> :nohlsearch<CR>
-nnoremap <f3> :0r ~/dev/prog/header/header.txt<cr>:%s/!!DATEEE!!/\=strftime("%d-%m-%Y")<cr>
-let mapleader=","
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
 
-imap <up> <nop>
-imap <down> <nop>
-imap <left> <nop>
-imap <right> <nop>
+":nmap <F4> :nohlsearch<CR>
+let mapleader=","
 imap ,, <Esc>
 map ,, <Esc>
 
-let g:ackprg="ack -H --nocolor --nogroup --column"
-nmap <leader>j mA:Ack<space>
-nmap <leader>ja mA:Ack"<C-r>=expand("<cword>")<cr>"
-nmap <leader>jA mA:Ack"<C-r>=expand("<CWORD>")<cr>"
+"let g:ackprg="ack -H --nocolor --nogroup --column"
+"nmap <leader>j mA:ack<space>
+"nmap <leader>ja mA:ack "<C-r>=expand("<cword>")<cr>"
+"nmap <leader>jA mA:ack "<C-r>=expand("<CWORD>")<cr>"
 
 let g:ctrlp_map = '<leader>c'
 map <leader>n :NERDTreeToggle<CR>
@@ -53,6 +55,45 @@ map <leader>f <C-W><RIGHT>
 map <leader>a <C-W><LEFT>
 map <leader>s <C-W><DOWN>
 map <leader>d <C-W><UP>
+
 hi Normal ctermbg=none
 "let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='term'
+
+"Ajout du 10/06/2017 Inspired from https://github.com/eko/dotfiles/blob/master/.vimrc
+"need test :!pbcopy on MAC
+"
+"For xterm Terminal
+:set ttyfast
+
+:set nobackup
+:set noswapfile
+
+"Show file path always
+:set laststatus=2 
+
+"Abbreviations
+cnoreabbrev W! w!
+cnoreabbrev Q! q!
+cnoreabbrev Qall! qall!
+cnoreabbrev Wq wq
+cnoreabbrev Wa wa
+cnoreabbrev wQ wq
+cnoreabbrev WQ wq
+cnoreabbrev W w
+cnoreabbrev Q q
+cnoreabbrev Qall qall
+
+"Don't autocomplete this files
+:set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
+
+"Plugin from https://github.com/yegappan/grep.git 
+nnoremap <silent> <leader>F :Rgrep<CR>
+let Grep_Default_Options = '-IR'
+let Grep_Skip_Files = '*.log *.db'
+let Grep_Skip_Dirs = '.git node_modules'
+
+"Delete Buffer
+map <leader>c :bd<CR>
+
+map <leader><space> :nohlsearch<CR>
