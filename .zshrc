@@ -79,19 +79,9 @@
 	# alias zshconfig="mate ~/.zshrc"
 	# alias ohmyzsh="mate ~/.oh-my-zsh"
 
-	alias cc="gcc -Wall -Wextra -Wall"
 	alias rm="/home/bulliby/dev/scripts/trashit.sh"
-	alias xlib="cc -L /lib -lXext -lX11"
-	alias ..2="cd ../.."
-	alias ..3="cd ../../.."
-	alias ..4="cd ../../../.."
-	alias ..5="cd ../../../../.."
-	alias ..6="cd ../../../../../.."
-	alias ..7="cd ../../../../../../.."
-	alias ..8="cd ../../../../../../../.."
-	alias ..9="cd ../../../../../../../../.."
-	php ~/dev/scripts/rdv.php
-	export CDPATH=/home/bulliby/prog:/home/bulliby/dev/web
+	export CDPATH=/home/bulliby/dev
     alias gt="git status";
+
 	#PROMPT_EOL_MARK='%{%}'
 
