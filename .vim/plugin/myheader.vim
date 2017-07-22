@@ -51,11 +51,7 @@ function! s:trimlogin ()
 endfunction
 
 function! s:trimemail ()
- let l:trimemail = strpart($MAIL, 0, s:contentlen - 16)
- if strlen(l:trimemail) == 0
   let l:trimemail = "wellsguillaume@gmail.com"
- endif
- return l:trimemail
 endfunction
 
 function! s:midgap ()
