@@ -52,6 +52,7 @@ endfunction
 
 function! s:trimemail ()
   let l:trimemail = "wellsguillaume@gmail.com"
+  return l:trimemail
 endfunction
 
 function! s:midgap ()
