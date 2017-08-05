@@ -357,7 +357,7 @@ module VIM
     case var
     when String
       var == "0"
-    when Fixnum
+    when Integer
       var == 0
     else
       LustyE::assert(false, "unexpected type: #{var.class}")
