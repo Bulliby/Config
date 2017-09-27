@@ -5,10 +5,33 @@
 "                                                         ________             "
 "    By: bulliby <wellsguillaume@gmail.com>              /   ____/_  _  __     "
 "                                                       /    \  _\ \/ \/ /     "
-"    Created: 2017/06/10 15:32:28 by bulliby            \     \_\ \     /      "
-"    Updated: 2017/06/10 15:36:14 by bulliby             \________/\/\_/       "
+"    Created: 2017/09/26 19:56:48 by bulliby            \     \_\ \     /      "
+"    Updated: 2017/09/27 22:11:42 by bulliby             \________/\/\_/       "
 "                                                                              "
 " **************************************************************************** "
+let mapleader=","
+
+set nu rnu
+set numberwidth=4
+set shiftwidth=4
+nnoremap - ddp
+nnoremap _ ddkP
+inoremap <c-d> <esc>ddi
+inoremap <c-x> <esc>xi
+inoremap <c-u> <esc>veUi
+nnoremap <c-u> veU
+nnoremap <leader>ev :split $MYVIMRC<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
+inoreabbrev __c public function __construct()
+inoreabbrev @@ wellsguillaume@gmail.com
+inoreabbrev __p public function() {<CR>}
+inoreabbrev __P private function() {<CR>}
+inoreabbrev __e private function() {<CR>}
+nnoremap <leader>" ea"<esc>bi"<esc>lel
+nnoremap <leader>' ea'<esc>bi'<esc>lel
+vnoremap <leader>v" <esc>`<i"<esc>`>la"<esc>
+vnoremap <leader>v' <esc>`<i'<esc>`>la'<esc>
+vnoremap <leader>> <esc>`<i<<esc>`>la><esc>
 
 execute pathogen#infect()
 :set t_Co=256
@@ -22,8 +45,8 @@ execute pathogen#infect()
 :set incsearch
 :set hidden
 :set tabstop=4
-:set shiftwidth=4
 :set softtabstop=4
+:set ruler
 set ruler 
 set scrolloff=3
 set title
@@ -31,11 +54,12 @@ set smartcase
 set hlsearch
 set visualbell
 set noerrorbells
+set expandtab
 set wrap!
 set backspace=indent,eol,start
+:inoremap jk <esc>
 
 ":nmap <F4> :nohlsearch<CR>
-let mapleader=","
 imap ,, <Esc>
 map ,, <Esc>
 
@@ -58,7 +82,7 @@ map <leader>d <C-W><UP>
 
 hi Normal ctermbg=none
 "let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='term'
+"let g:airline_theme='term'
 
 "Ajout du 10/06/2017 Inspired from https://github.com/eko/dotfiles/blob/master/.vimrc
 "need test :!pbcopy on MAC
@@ -97,3 +121,9 @@ let Grep_Skip_Dirs = '.git node_modules'
 map <leader>c :bd<CR>
 
 map <leader><space> :nohlsearch<CR>
+au FileType yaml setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
+
+"For don't lost precedent yank
+xnoremap p pgvy
+"Set path of file
+set statusline+=%F
