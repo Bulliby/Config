@@ -6,7 +6,7 @@
 "    By: bulliby <wellsguillaume@gmail.com>              /   ____/_  _  __     "
 "                                                       /    \  _\ \/ \/ /     "
 "    Created: 2017/09/26 19:56:48 by bulliby            \     \_\ \     /      "
-"    Updated: 2017/09/27 22:11:42 by bulliby             \________/\/\_/       "
+"    Updated: 2017/09/28 21:24:06 by bulliby             \________/\/\_/       "
 "                                                                              "
 " **************************************************************************** "
 let mapleader=","
@@ -27,11 +27,11 @@ inoreabbrev @@ wellsguillaume@gmail.com
 inoreabbrev __p public function() {<CR>}
 inoreabbrev __P private function() {<CR>}
 inoreabbrev __e private function() {<CR>}
-nnoremap <leader>" ea"<esc>bi"<esc>lel
-nnoremap <leader>' ea'<esc>bi'<esc>lel
-vnoremap <leader>v" <esc>`<i"<esc>`>la"<esc>
-vnoremap <leader>v' <esc>`<i'<esc>`>la'<esc>
-vnoremap <leader>> <esc>`<i<<esc>`>la><esc>
+vnoremap <leader>" <esc>`<i"<esc>`>la"<esc>
+vnoremap <leader>' <esc>`<i'<esc>`>la'<esc>
+vnoremap <leader>< <esc>`<i<<esc>`>la><esc>
+:inoremap jk <esc>
+inoremap <esc> <nop>
 
 execute pathogen#infect()
 :set t_Co=256
@@ -57,12 +57,8 @@ set noerrorbells
 set expandtab
 set wrap!
 set backspace=indent,eol,start
-:inoremap jk <esc>
 
 ":nmap <F4> :nohlsearch<CR>
-imap ,, <Esc>
-map ,, <Esc>
-
 "let g:ackprg="ack -H --nocolor --nogroup --column"
 "nmap <leader>j mA:ack<space>
 "nmap <leader>ja mA:ack "<C-r>=expand("<cword>")<cr>"
@@ -126,4 +122,3 @@ au FileType yaml setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
 "For don't lost precedent yank
 xnoremap p pgvy
 "Set path of file
-set statusline+=%F
