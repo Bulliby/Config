@@ -6,11 +6,11 @@
 "    By: bulliby <wellsguillaume@gmail.com>              /   ____/_  _  __     "
 "                                                       /    \  _\ \/ \/ /     "
 "    Created: 2017/09/26 19:56:48 by bulliby            \     \_\ \     /      "
-"    Updated: 2017/09/28 21:24:06 by bulliby             \________/\/\_/       "
+"    Updated: 2017/10/01 18:37:44 by bulliby             \________/\/\_/       "
 "                                                                              "
 " **************************************************************************** "
 let mapleader=","
-
+let maplocalleader=","
 set nu rnu
 set numberwidth=4
 set shiftwidth=4
@@ -22,16 +22,41 @@ inoremap <c-u> <esc>veUi
 nnoremap <c-u> veU
 nnoremap <leader>ev :split $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
-inoreabbrev __c public function __construct()
 inoreabbrev @@ wellsguillaume@gmail.com
-inoreabbrev __p public function() {<CR>}
-inoreabbrev __P private function() {<CR>}
-inoreabbrev __e private function() {<CR>}
 vnoremap <leader>" <esc>`<i"<esc>`>la"<esc>
 vnoremap <leader>' <esc>`<i'<esc>`>la'<esc>
 vnoremap <leader>< <esc>`<i<<esc>`>la><esc>
 :inoremap jk <esc>
 inoremap <esc> <nop>
+
+:aug wrap
+:   au!
+:   autocmd BufNewFile,BufRead *.html setlocal nowrap
+:   autocmd BufNewFile,BufRead *.html.twig setlocal nowrap
+:aug END
+
+:aug comment
+:   au!
+:   autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
+:   autocmd FileType c nnoremap <buffer> <localleader>c I//<esc>
+:   autocmd FileType python     nnoremap <buffer> <localleader>c I#<esc>
+:   autocmd FileType vim     nnoremap <buffer> <localleader>c I"<esc>
+:   autocmd FileType html     nnoremap <buffer> <localleader>c I<!--<esc>A--><esc>
+:aug END
+
+:aug snippet
+:   au!
+:   autocmd FileType python     :iabbrev <buffer> iff if:<left>
+:   autocmd FileType javascript :iabbrev <buffer> iff if ()<left>
+:   autocmd FileType c :iabbrev <buffer> iff if ()<left>
+:   autocmd FileType php :iabbrev <buffer> iff if ()<left>
+:   autocmd FileType javascript :iabbrev <buffer> eiff else<space>if<space>()<left>
+:   autocmd FileType c :iabbrev <buffer> eiff else<space>if<space>()<left>
+:   autocmd FileType php :iabbrev <buffer> eiff else<space>if<space>()<left>
+:   autocmd filetype php :inoreabbrev <buffer> __pu public function<space>()<CR>{<CR>}<CR><up><up><up>
+:   autocmd filetype php :inoreabbrev <buffer> __pr private function()<CR>{<CR>}<CR><up><up><up>
+:   autocmd filetype php :inoreabbrev <buffer> __c public function __construct<CR>{<CR>}<CR><up><up><up>
+:aug END
 
 execute pathogen#infect()
 :set t_Co=256
@@ -55,7 +80,6 @@ set hlsearch
 set visualbell
 set noerrorbells
 set expandtab
-set wrap!
 set backspace=indent,eol,start
 
 ":nmap <F4> :nohlsearch<CR>
