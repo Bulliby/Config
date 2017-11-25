@@ -6,7 +6,7 @@
 "    By: bulliby <wellsguillaume@gmail.com>              /   ____/_  _  __     "
 "                                                       /    \  _\ \/ \/ /     "
 "    Created: 2017/09/26 19:56:48 by bulliby            \     \_\ \     /      "
-"    Updated: 2017/11/05 21:25:19 by bulliby             \________/\/\_/       "
+"    Updated: 2017/11/25 14:08:36 by bulliby             \________/\/\_/       "
 "                                                                              "
 " **************************************************************************** "
 
@@ -34,6 +34,7 @@
 :onoremap ip' :<C-U>normal! F'vi'<CR>
 :nnoremap <leader>ev :vsplit ~/.vimrc<CR>
 :nnoremap <leader>sv :source ~/.vimrc<CR>
+:nnoremap <leader>; :execute "normal! mqA;"<CR><ESC>`q
 " }}}
 
 " Auto commands (comment snippet wrap fold) {{{
@@ -50,7 +51,7 @@
 :   autocmd FileType python,sh,yaml         vnoremap <buffer> <localleader>c I#<esc>
 :   autocmd FileType vim                    vnoremap <buffer> <localleader>c I"<esc>
    "Multi Line
-:   autocmd FileType javascript,c,cpp       vnoremap <buffer> <localleader>c <ESC>`<I/*<ESC>`>A*/<ESC>
+:   autocmd FileType javascript,c,cpp,php   vnoremap <buffer> <localleader>c <ESC>`<I/*<ESC>`>A*/<ESC>
 :   autocmd FileType html                   vnoremap <buffer> <localleader>c <ESC>`<I<!--<ESC>`>A--><ESC>
 :   autocmd FileType html.twig              vnoremap <buffer> <localleader>c <ESC>`<I{#<ESC>`>A#}<ESC>
 :
@@ -69,6 +70,7 @@ augroup filetype_vim
     autocmd!
     autocmd FileType vim setlocal foldmethod=marker
 augroup END
+
 " }}}
 
 " Config {{{
@@ -78,7 +80,7 @@ augroup END
 :syntax on
 :filetype plugin indent on
 :colorscheme molokai
-:set rnu
+:set rnu nu
 :set showcmd
 :set numberwidth=4
 :set shiftwidth=4
@@ -116,11 +118,13 @@ augroup END
 :noremap <leader>s <C-W><DOWN>
 :noremap <leader>d <C-W><UP>
 :noremap <leader><space> :nohlsearch<CR>
+:noremap <leader>t :execute "rightbelow vsplit " . bufname("#")<CR>
 " }}}
 
 " Abbreviatons {{{
 :cnoreabbrev W! w!
 :cnoreabbrev Q! q!
+:cnoreabbrev q1 q!
 :cnoreabbrev Qall! qall!
 :cnoreabbrev Wq wq
 :cnoreabbrev Wa wa
