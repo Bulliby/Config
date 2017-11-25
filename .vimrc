@@ -6,7 +6,7 @@
 "    By: bulliby <wellsguillaume@gmail.com>              /   ____/_  _  __     "
 "                                                       /    \  _\ \/ \/ /     "
 "    Created: 2017/09/26 19:56:48 by bulliby            \     \_\ \     /      "
-"    Updated: 2017/11/25 14:08:36 by bulliby             \________/\/\_/       "
+"    Updated: 2017/11/25 14:41:29 by bulliby             \________/\/\_/       "
 "                                                                              "
 " **************************************************************************** "
 
@@ -34,7 +34,7 @@
 :onoremap ip' :<C-U>normal! F'vi'<CR>
 :nnoremap <leader>ev :vsplit ~/.vimrc<CR>
 :nnoremap <leader>sv :source ~/.vimrc<CR>
-:nnoremap <leader>; :execute "normal! mqA;"<CR><ESC>`q
+:nnoremap <leader>; mqA;<ESC>`q
 " }}}
 
 " Auto commands (comment snippet wrap fold) {{{
