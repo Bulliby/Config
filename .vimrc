@@ -6,7 +6,7 @@
 "    By: bulliby <wellsguillaume@gmail.com>              /   ____/_  _  __     "
 "                                                       /    \  _\ \/ \/ /     "
 "    Created: 2017/09/26 19:56:48 by bulliby            \     \_\ \     /      "
-"    Updated: 2017/11/25 14:41:29 by bulliby             \________/\/\_/       "
+"    Updated: 2018/01/21 20:00:42 by bulliby             \________/\/\_/       "
 "                                                                              "
 " **************************************************************************** "
 
@@ -61,7 +61,6 @@
 :   au!
 :   autocmd FileType c,php,js,cpp           iabbrev <buffer> _i if()<CR>{<CR>}<ESC>2k0f(
 :   autocmd FileType c,php,js,cpp           iabbrev <buffer> _e else if()<CR>{<CR>}<ESC>2k0f(
-:   autocmd FileType php,js                 iabbrev <buffer> _f function ()<CR>{<CR>}<ESC>2k0f(
 :   autocmd FileType php,cpp                iabbrev <buffer> _pu public
 :   autocmd FileType php,cpp                iabbrev <buffer> _pr private
 :aug END
@@ -119,6 +118,7 @@ augroup END
 :noremap <leader>d <C-W><UP>
 :noremap <leader><space> :nohlsearch<CR>
 :noremap <leader>t :execute "rightbelow vsplit " . bufname("#")<CR>
+:imap <ESC> <NOP>
 " }}}
 
 " Abbreviatons {{{
