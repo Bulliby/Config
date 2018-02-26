@@ -51,7 +51,7 @@ function! s:trimlogin ()
 endfunction
 
 function! s:trimemail ()
-  let l:trimemail = "wellsguillaume@gmail.com"
+  let l:trimemail = "wellsguillaume+at+gmail.com"
   return l:trimemail
 endfunction
 
