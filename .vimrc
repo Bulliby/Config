@@ -6,7 +6,7 @@
 "    By: bulliby <wellsguillaume@gmail.com>              /   ____/_  _  __     "
 "                                                       /    \  _\ \/ \/ /     "
 "    Created: 2017/09/26 19:56:48 by bulliby            \     \_\ \     /      "
-"    Updated: 2018/01/21 20:00:42 by bulliby             \________/\/\_/       "
+"    Updated: 2018/01/28 18:00:00 by bulliby             \________/\/\_/       "
 "                                                                              "
 " **************************************************************************** "
 
@@ -118,7 +118,6 @@ augroup END
 :noremap <leader>d <C-W><UP>
 :noremap <leader><space> :nohlsearch<CR>
 :noremap <leader>t :execute "rightbelow vsplit " . bufname("#")<CR>
-:imap <ESC> <NOP>
 " }}}
 
 " Abbreviatons {{{
