@@ -6,7 +6,7 @@
 "    By: bulliby <wellsguillaume@gmail.com>              /   ____/_  _  __     "
 "                                                       /    \  _\ \/ \/ /     "
 "    Created: 2017/09/26 19:56:48 by bulliby            \     \_\ \     /      "
-"    Updated: 2018/01/28 18:00:00 by bulliby             \________/\/\_/       "
+"    Updated: 2018/06/24 22:41:53 by bulliby             \________/\/\_/       "
 "                                                                              "
 " **************************************************************************** "
 
@@ -18,7 +18,8 @@
 :nnoremap _ ddkP
 :nnoremap - ddp
 :inoremap <c-d> <esc>ddi
-:inoremap <c-x> <esc>xi
+":inoremap <c-x> <esc>xi
+"supressed for completion stuff
 :inoremap <c-u> <esc>veUi
 :nnoremap <c-u> veU
 :inoreabbrev @@ wellsguillaume@gmail.com
@@ -33,7 +34,7 @@
 :onoremap in' :<C-U>normal! f'vi'<CR>
 :onoremap ip' :<C-U>normal! F'vi'<CR>
 :nnoremap <leader>ev :vsplit ~/.vimrc<CR>
-:nnoremap <leader>sv :source ~/.vimrc<CR>
+:nnoremap <leader>sv :source ~/dev/Config/.vimrc<CR>
 :nnoremap <leader>; mqA;<ESC>`q
 " }}}
 
@@ -42,6 +43,7 @@
 :   au!
 :   autocmd BufNewFile,BufRead *.html setlocal wrap
 :   autocmd BufNewFile,BufRead *.html.twig setlocal wrap
+:   autocmd BufNewFile,BufRead *.vue setlocal nowrap
 :aug END
 
 :aug comment
@@ -63,6 +65,8 @@
 :   autocmd FileType c,php,js,cpp           iabbrev <buffer> _e else if()<CR>{<CR>}<ESC>2k0f(
 :   autocmd FileType php,cpp                iabbrev <buffer> _pu public
 :   autocmd FileType php,cpp                iabbrev <buffer> _pr private
+:   autocmd FileType javascript             iabbrev <buffer> _C console.log()<ESC>2h
+:   autocmd FileType javascript,php,c,cpp   iabbrev <buffer> _F function()<ESC>2h
 :aug END
 
 augroup filetype_vim
