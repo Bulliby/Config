@@ -6,7 +6,7 @@
 "    By: bulliby <wellsguillaume@gmail.com>              /   ____/_  _  __     "
 "                                                       /    \  _\ \/ \/ /     "
 "    Created: 2017/09/26 19:56:48 by bulliby            \     \_\ \     /      "
-"    Updated: 2018/06/24 22:41:53 by bulliby             \________/\/\_/       "
+"    Updated: 2019/07/20 11:08:05 by bulliby             \________/\/\_/       "
 "                                                                              "
 " **************************************************************************** "
 
@@ -82,8 +82,7 @@ augroup END
 :set background=light
 :syntax on
 :filetype plugin indent on
-:colorscheme molokai
-:set rnu nu
+:set rnu
 :set showcmd
 :set numberwidth=4
 :set shiftwidth=4
@@ -93,7 +92,6 @@ augroup END
 :set tabstop=4
 :set softtabstop=4
 :set ruler
-:set scrolloff=3
 :set title
 :set smartcase
 :set hlsearch
@@ -105,7 +103,6 @@ augroup END
 :set noswapfile
 :hi Normal ctermbg=none
 :set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
-:xnoremap p pgvy
 :set foldlevel=99
 " }}}
 
@@ -139,3 +136,4 @@ augroup END
 " }}}
 
 set statusline=%-100F%m\{%c\:%l\}
+colorscheme dracula
