@@ -6,7 +6,7 @@
 "    By: bulliby <wellsguillaume@gmail.com>              /   ____/_  _  __     "
 "                                                       /    \  _\ \/ \/ /     "
 "    Created: 2017/09/26 19:56:48 by bulliby            \     \_\ \     /      "
-"    Updated: 2019/07/20 11:08:05 by bulliby             \________/\/\_/       "
+"    Updated: 2019/10/12 21:57:36 by bulliby             \________/\/\_/       "
 "                                                                              "
 " **************************************************************************** "
 
@@ -34,7 +34,7 @@
 :onoremap in' :<C-U>normal! f'vi'<CR>
 :onoremap ip' :<C-U>normal! F'vi'<CR>
 :nnoremap <leader>ev :vsplit ~/.vimrc<CR>
-:nnoremap <leader>sv :source ~/dev/Config/.vimrc<CR>
+:nnoremap <leader>sv :source ~/dev/Tools/dotFiles/.vimrc<CR>
 :nnoremap <leader>; mqA;<ESC>`q
 " }}}
 
@@ -83,6 +83,7 @@ augroup END
 :syntax on
 :filetype plugin indent on
 :set rnu
+:set nu
 :set showcmd
 :set numberwidth=4
 :set shiftwidth=4
@@ -95,7 +96,7 @@ augroup END
 :set title
 :set smartcase
 :set hlsearch
-:set visualbell
+:set novisualbell
 :set noerrorbells
 :set expandtab
 :set backspace=indent,eol,start
