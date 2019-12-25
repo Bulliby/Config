@@ -6,7 +6,7 @@
 "    By: bulliby <wellsguillaume@gmail.com>              /   ____/_  _  __     "
 "                                                       /    \  _\ \/ \/ /     "
 "    Created: 2017/09/26 19:56:48 by bulliby            \     \_\ \     /      "
-"    Updated: 2019/10/12 21:57:36 by bulliby             \________/\/\_/       "
+"    Updated: 2019/12/25 21:05:04 by bulliby             \________/\/\_/       "
 "                                                                              "
 " **************************************************************************** "
 
@@ -35,6 +35,7 @@
 :onoremap ip' :<C-U>normal! F'vi'<CR>
 :nnoremap <leader>ev :vsplit ~/.vimrc<CR>
 :nnoremap <leader>sv :source ~/dev/Tools/dotFiles/.vimrc<CR>
+:nnoremap <leader>sp :vsplit $HOME/.vim/bundle/vim-snippets/UltiSnips<CR>
 :nnoremap <leader>; mqA;<ESC>`q
 " }}}
 
@@ -79,7 +80,7 @@ augroup END
 " Config {{{
 :execute pathogen#infect()
 :set t_Co=256
-:set background=light
+:set background=dark
 :syntax on
 :filetype plugin indent on
 :set rnu
@@ -136,5 +137,10 @@ augroup END
 :cnoreabbrev Qall qall
 " }}}
 
-set statusline=%-100F%m\{%c\:%l\}
+" Ultisnips {{{
+let g:UltiSnipsExpandTrigger="<Tab>"
+let g:UltiSnipsListSnippets="<C-l>"
+let g:UltiSnipsEditSplit="vertical"
+" }}}
+
 colorscheme dracula
