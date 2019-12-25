@@ -1,0 +1,27 @@
+[submodule ".vim/bundle/vim-airline"]
+	path = .vim/bundle/vim-airline
+	url = https://github.com/vim-airline/vim-airline.git
+[submodule ".vim/bundle/LustyExplorer"]
+	path = .vim/bundle/LustyExplorer
+	url = https://github.com/vim-scripts/LustyExplorer.git
+[submodule ".vim/bundle/vim"]
+	path = .vim/bundle/vim
+	url = https://github.com/dracula/vim.git
+[submodule ".vim/bundle/nerdtree"]
+	path = .vim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule ".vim/bundle/ultisnips"]
+	path = .vim/bundle/ultisnips
+	url = https://github.com/SirVer/ultisnips.git
+[submodule ".vim/bundle/vim-snippets"]
+	path = .vim/bundle/vim-snippets
+	url = https://github.com/honza/vim-snippets.git
+[submodule ".vim/bundle/vim-blade"]
+	path = .vim/bundle/vim-blade
+	url = https://github.com/jwalton512/vim-blade.git
+[submodule ".vim/bundle/vim-twig"]
+	path = .vim/bundle/vim-twig
+	url = https://github.com/lumiliet/vim-twig.git
+[submodule ".vim/bundle/vim-vue"]
+	path = .vim/bundle/vim-vue
+	url = https://github.com/posva/vim-vue.git
