@@ -28,3 +28,9 @@
 [submodule "ohmyzsh"]
 	path = ohmyzsh
 	url = https://github.com/ohmyzsh/ohmyzsh.git
+[submodule ".vim/bundle/command-t"]
+	path = .vim/bundle/command-t
+	url = https://github.com/wincent/command-t.git
+[submodule "command-t"]
+	path = command-t
+	url = https://github.com/wincent/command-t.git
