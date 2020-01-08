@@ -6,7 +6,7 @@
 "    By: bulliby <wellsguillaume@gmail.com>              /   ____/_  _  __     "
 "                                                       /    \  _\ \/ \/ /     "
 "    Created: 2017/09/26 19:56:48 by bulliby            \     \_\ \     /      "
-"    Updated: 2020/01/09 00:11:18 by bulliby             \________/\/\_/       "
+"    Updated: 2020/01/09 00:52:07 by bulliby             \________/\/\_/       "
 "                                                                              "
 " **************************************************************************** "
 
@@ -37,7 +37,7 @@
 :nnoremap <leader>sv :source ~/dev/Tools/dotFiles/.vimrc<CR>
 :nnoremap <leader>sp :vsplit $HOME/.vim/bundle/vim-snippets/UltiSnips<CR>
 :nnoremap <leader>; mqA;<ESC>`q
-:noremap <leader>f :CommandT<CR>
+:noremap <leader>lf :CommandT<CR>
 :noremap <leader>b :CommandTBuffer<CR>
 :noremap <leader>t :CommandTTag<CR>
 " }}}
