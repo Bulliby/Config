@@ -93,3 +93,4 @@ alias bip="echo -e '\a'"
 alias vue="./node_modules/.bin/encore dev" 
 export LFS=/mnt/lfs
 alias a="php artisan"
+alias glar='grep -rn --exclude-dir="vendor" --exclude-dir="node_module" --exclude="tags"'

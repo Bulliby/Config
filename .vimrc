@@ -6,7 +6,7 @@
 "    By: bulliby <wellsguillaume@gmail.com>              /   ____/_  _  __     "
 "                                                       /    \  _\ \/ \/ /     "
 "    Created: 2017/09/26 19:56:48 by bulliby            \     \_\ \     /      "
-"    Updated: 2020/02/05 23:59:33 by bulliby             \________/\/\_/       "
+"    Updated: 2020/03/01 18:03:42 by bulliby             \________/\/\_/       "
 "                                                                              "
 " **************************************************************************** "
 
@@ -26,7 +26,7 @@
 ":vnoremap <leader>" <esc>`<i"<esc>`>la"<esc>
 ":vnoremap <leader>' <esc>`<i'<esc>`>la'<esc>
 ":vnoremap <leader>< <esc>`<i<<esc>`>la><esc>
-":inoremap jk <esc>
+:inoremap jk <esc>
 ":onoremap ip( :<C-U>normal! F)vi(<cr>
 ":onoremap in( :<C-U>normal! f(vi(<CR>
 ":onoremap in" :<C-U>normal! f"vi"<CR>
@@ -38,9 +38,9 @@
 :nnoremap <leader>sv :source ~/dev/Tools/DotFiles/.vimrc<CR>
 ":nnoremap <leader>sp :vsplit $HOME/.vim/bundle/vim-snippets/UltiSnips<CR>
 "::nnoremap <leader>; mqA;<ESC>`q
-":noremap <leader>lf :CommandT<CR>
-":noremap <leader>b :CommandTBuffer<CR>
-":noremap <leader>t :CommandTTag<CR>
+:noremap <leader>lf :CommandT<CR>
+:noremap <leader>b :CommandTBuffer<CR>
+:noremap <leader>t :CommandTTag<CR>
 " }}}
 
 " Auto commands (comment snippet wrap fold) {{{
@@ -148,4 +148,6 @@ let g:UltiSnipsListSnippets="<C-l>"
 let g:UltiSnipsEditSplit="vertical"
 " }}}
 
+"Avoid annoying higlithing
+let g:dracula_italic = 0
 colorscheme dracula
