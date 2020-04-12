@@ -6,7 +6,7 @@
 "    By: bulliby <wellsguillaume@gmail.com>              /   ____/_  _  __     "
 "                                                       /    \  _\ \/ \/ /     "
 "    Created: 2017/09/26 19:56:48 by bulliby            \     \_\ \     /      "
-"    Updated: 2020/03/01 18:03:42 by bulliby             \________/\/\_/       "
+"    Updated: 2020/04/12 18:04:21 by bulliby             \________/\/\_/       "
 "                                                                              "
 " **************************************************************************** "
 
@@ -36,9 +36,9 @@
 :nnoremap <leader>ev :vsplit ~/.vimrc<CR>
 :nnoremap <leader>he :help quickref.txt<CR>
 :nnoremap <leader>sv :source ~/dev/Tools/DotFiles/.vimrc<CR>
-":nnoremap <leader>sp :vsplit $HOME/.vim/bundle/vim-snippets/UltiSnips<CR>
+:nnoremap <leader>sp :vsplit $HOME/.vim/bundle/vim-snippets/UltiSnips<CR>
 "::nnoremap <leader>; mqA;<ESC>`q
-:noremap <leader>lf :CommandT<CR>
+:noremap <leader>f :CommandT<CR>
 :noremap <leader>b :CommandTBuffer<CR>
 :noremap <leader>t :CommandTTag<CR>
 " }}}
@@ -124,8 +124,9 @@ augroup END
 :noremap <leader>a <C-W><LEFT>
 :noremap <leader>s <C-W><DOWN>
 :noremap <leader>d <C-W><UP>
+:noremap <leader>p :set paste!<CR>
+:noremap <leader>y "+y<CR>
 :noremap <leader><space> :nohlsearch<CR>
-":noremap <leader>t :execute "rightbelow vsplit " . bufname("#")<CR>
 " }}}
 
 " Abbreviatons {{{

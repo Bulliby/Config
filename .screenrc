@@ -4,6 +4,7 @@ vbell off
 term screen-256color
 escape ^Aa
 defscrollback 5000 #defaul 100
+defdynamictitle off
 
 bind s split
 bind j focus down
@@ -15,3 +16,7 @@ bind - resize -5
 
 hardstatus alwayslastline
 hardstatus string "%{= kb}[ %=%{w}%?%-Lw%?%{C}(%{W}%n*%f %t%?(%u)%?%{C})%{w}%?%+Lw%?%?%= %{b}][%{C} %Y.%m.%d %{W}%0c %{b}]"
+
+screen -t Code
+screen -t Debug
+screen -t Others

@@ -90,7 +90,8 @@ alias ras="ssh -i /home/bulliby/.ssh/id_rsa_ras bulliby@192.168.0.42"
 alias kim="ssh -p 14498 -i /home/bulliby/.ssh/kim.rsa bulliby@wellsguillaume.fr"
 alias save="rsync -rtvs --progress --delete --force --exclude 'vendor' --exclude '.git' --exclude 'Trash'  --files-from=.save_rsync ~/ save@192.168.0.42:Guillaume"
 alias bip="echo -e '\a'"
-alias vue="./node_modules/.bin/encore dev" 
+#alias vue="./node_modules/.bin/encore dev" 
+alias vue-cli="/home/bulliby/dev/web/vue-cli/node_modules/@vue/cli/bin/vue.js"
 export LFS=/mnt/lfs
 alias a="php artisan"
 alias glar='grep -rn --exclude-dir="vendor" --exclude-dir="node_module" --exclude="tags"'
