@@ -25,12 +25,12 @@
 [submodule ".vim/bundle/vim-vue"]
 	path = .vim/bundle/vim-vue
 	url = https://github.com/posva/vim-vue.git
-[submodule "ohmyzsh"]
-	path = ohmyzsh
-	url = https://github.com/ohmyzsh/ohmyzsh.git
 [submodule ".vim/bundle/command-t"]
 	path = .vim/bundle/command-t
 	url = https://github.com/wincent/command-t.git
 [submodule ".vim/bundle/vim-javascript"]
 	path = .vim/bundle/vim-javascript
 	url = https://github.com/pangloss/vim-javascript.git
+[submodule "ohmyzsh"]
+	path = ohmyzsh
+	url = https://github.com/ohmyzsh/ohmyzsh.git
