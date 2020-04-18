@@ -332,7 +332,7 @@ shell:
 #
 # Directory the shell is started in. If this is unset, or `None`, the working
 # directory of the parent process will be used.
-#working_directory: None
+working_directory: /home/bulliby
 
 # WinPTY backend (Windows only)
 #

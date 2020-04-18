@@ -6,7 +6,7 @@
 "    By: bulliby <wellsguillaume@gmail.com>              /   ____/_  _  __     "
 "                                                       /    \  _\ \/ \/ /     "
 "    Created: 2017/09/26 19:56:48 by bulliby            \     \_\ \     /      "
-"    Updated: 2020/04/12 18:04:21 by bulliby             \________/\/\_/       "
+"    Updated: 2020/04/18 17:07:54 by bulliby             \________/\/\_/       "
 "                                                                              "
 " **************************************************************************** "
 
@@ -152,3 +152,5 @@ let g:UltiSnipsEditSplit="vertical"
 "Avoid annoying higlithing
 let g:dracula_italic = 0
 colorscheme dracula
+
+nnoremap <silent> <F8> :TlistToggle<CR>
