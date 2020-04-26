@@ -6,7 +6,7 @@
 "    By: bulliby <wellsguillaume@gmail.com>              /   ____/_  _  __     "
 "                                                       /    \  _\ \/ \/ /     "
 "    Created: 2017/09/26 19:56:48 by bulliby            \     \_\ \     /      "
-"    Updated: 2020/04/18 17:07:54 by bulliby             \________/\/\_/       "
+"    Updated: 2020/04/19 19:02:13 by bulliby             \________/\/\_/       "
 "                                                                              "
 " **************************************************************************** "
 
@@ -35,6 +35,7 @@
 ":onoremap ip' :<C-U>normal! F'vi'<CR>
 :nnoremap <leader>ev :vsplit ~/.vimrc<CR>
 :nnoremap <leader>he :help quickref.txt<CR>
+:nnoremap <leader>re :bufdo checktime<CR>
 :nnoremap <leader>sv :source ~/dev/Tools/DotFiles/.vimrc<CR>
 :nnoremap <leader>sp :vsplit $HOME/.vim/bundle/vim-snippets/UltiSnips<CR>
 "::nnoremap <leader>; mqA;<ESC>`q
@@ -43,7 +44,7 @@
 :noremap <leader>t :CommandTTag<CR>
 " }}}
 
-" Auto commands (comment snippet wrap fold) {{{
+" Auto commands (comment snippet wrap fold quickfix) {{{
 :aug wrap
 :   au!
 :   autocmd BufNewFile,BufRead *.html setlocal wrap
@@ -70,8 +71,14 @@
 :   autocmd FileType c,php,js,cpp           iabbrev <buffer> _e else if()<CR>{<CR>}<ESC>2k0f(
 :   autocmd FileType php,cpp                iabbrev <buffer> _pu public
 :   autocmd FileType php,cpp                iabbrev <buffer> _pr private
-:   autocmd FileType javascript             iabbrev <buffer> _C console.log()<ESC>2h
-:   autocmd FileType javascript,php,c,cpp   iabbrev <buffer> _F function()<ESC>2h
+:   autocmd FileType javascript,vue         iabbrev <buffer> C console.log()<ESC>2h
+:   autocmd FileType javascript,php,c,cpp   iabbrev <buffer> F function()<ESC>2h
+:aug END
+
+:aug quickfix
+:   autocmd!
+:   autocmd FileType qf                     nnoremap <buffer> <leader>n :cnewer<CR>
+:   autocmd FileType qf                     nnoremap <buffer> <leader>p :colder<CR>
 :aug END
 
 augroup filetype_vim
