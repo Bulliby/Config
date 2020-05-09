@@ -43,6 +43,7 @@ function prepare()
 
     ln -sf $DEPLOY_PATHANDTARGET/.vim ~/.vim && \
     ln -sf $DEPLOY_PATHANDTARGET/.vimrc ~/.vimrc && \
+    ln -sf $DEPLOY_PATHANDTARGET/.screenrc ~/.screenrc && \
     ln -sf $DEPLOY_PATHANDTARGET/ohmyzsh ~/.oh-my-zsh
 
     if [ $2 = 'work' ]; then

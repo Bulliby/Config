@@ -1,0 +1,27 @@
+[submodule "home/.vim/bundle/command-t"]
+	path = home/.vim/bundle/command-t
+	url = https://github.com/wincent/command-t.git
+[submodule "home/.vim/bundle/vim-blade"]
+	path = home/.vim/bundle/vim-blade
+	url = https://github.com/jwalton512/vim-blade.git
+[submodule "home/.vim/bundle/vim-airline"]
+	path = home/.vim/bundle/vim-airline
+	url = https://github.com/vim-airline/vim-airline.git
+[submodule "home/.vim/bundle/vim-snippets"]
+	path = home/.vim/bundle/vim-snippets
+	url = https://github.com/honza/vim-snippets.git
+[submodule "home/.vim/bundle/vim-javascript"]
+	path = home/.vim/bundle/vim-javascript
+	url = https://github.com/pangloss/vim-javascript.git
+[submodule "home/.vim/bundle/dracula"]
+	path = home/.vim/bundle/dracula
+	url = https://github.com/dracula/vim.git
+[submodule "home/.vim/bundle/utilsnips"]
+	path = home/.vim/bundle/utilsnips
+	url = https://github.com/SirVer/ultisnips.git
+[submodule "home/ohmyzsh"]
+	path = home/ohmyzsh
+	url = https://github.com/ohmyzsh/ohmyzsh.git
+[submodule "home/.vim/bundle/nerdtree"]
+	path = home/.vim/bundle/nerdtree
+	url = https://github.com/preservim/nerdtree.git
