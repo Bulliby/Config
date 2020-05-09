@@ -49,3 +49,6 @@
 [submodule "home/ohmyzsh"]
 	path = home/ohmyzsh
 	url = https://github.com/ohmyzsh/ohmyzsh.git
+[submodule "mac/.vim/bundle/command-t"]
+	path = mac/.vim/bundle/command-t
+	url = https://github.com/wincent/command-t.git
