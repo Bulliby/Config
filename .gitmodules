@@ -25,3 +25,27 @@
 [submodule "home/.vim/bundle/nerdtree"]
 	path = home/.vim/bundle/nerdtree
 	url = https://github.com/preservim/nerdtree.git
+[submodule "mac/.vim/bundle/nerdtree"]
+	path = mac/.vim/bundle/nerdtree
+	url = https://github.com/preservim/nerdtree.git
+[submodule "mac/ohmyzsh"]
+	path = mac/ohmyzsh
+	url = https://github.com/ohmyzsh/ohmyzsh.git
+[submodule "mac/.vim/bundle/utilsnips"]
+	path = mac/.vim/bundle/utilsnips
+	url = https://github.com/SirVer/ultisnips.git
+[submodule "mac/.vim/bundle/dracula"]
+	path = mac/.vim/bundle/dracula
+	url = https://github.com/dracula/vim.git
+[submodule "mac/.vim/bundle/vim-javascript"]
+	path = mac/.vim/bundle/vim-javascript
+	url = https://github.com/pangloss/vim-javascript.git
+[submodule "mac/.vim/bundle/vim-snippets"]
+	path = mac/.vim/bundle/vim-snippets
+	url = https://github.com/honza/vim-snippets.git
+[submodule "mac/.vim/bundle/vim-airline"]
+	path = mac/.vim/bundle/vim-airline
+	url = https://github.com/vim-airline/vim-airline.git
+[submodule "mac/.vim/bundle/vim-blade"]
+	path = mac/.vim/bundle/vim-blade
+	url = https://github.com/jwalton512/vim-blade.git
