@@ -22,29 +22,34 @@ set_variable()
 
 function prepare_work()
 {
-    ln -sf $DEPLOY_PATHANDTARGET/.bashrc ~/.bashrc
+    rm ~/.bashrc
+    ln -s $DEPLOY_PATHANDTARGET/.bashrc ~/.bashrc
 }
 
 function prepare_home()
 {
-    ln -sf $DEPLOY_PATHANDTARGET/.zshrc ~/.zshrc
+    rm ~/.zshrc
+    ln -s $DEPLOY_PATHANDTARGET/.zshrc ~/.zshrc
 }
 
 function prepare()
 {
     DEPLOY_PATHANDTARGET=$1/$2
 
-    cd $DEPLOY_PATHANDTARGET 2> /dev/null
-
     if [ $? -ne 0 ]; then
         echo "The combo path target doesn't exist"
         exit
     fi
 
-    ln -sf $DEPLOY_PATHANDTARGET/.vim ~/.vim && \
-    ln -sf $DEPLOY_PATHANDTARGET/.vimrc ~/.vimrc && \
-    ln -sf $DEPLOY_PATHANDTARGET/.screenrc ~/.screenrc && \
-    ln -sf $DEPLOY_PATHANDTARGET/ohmyzsh ~/.oh-my-zsh
+    rm -rf ~/.vimrc ~/.vim ~/.screenrc ~/.oh-my-zsh ~/.gitconfig ~/.gitignore_global
+
+    ln -sv $DEPLOY_PATHANDTARGET/.vim ~/.vim && \
+    ln -sv $DEPLOY_PATHANDTARGET/.vimrc ~/.vimrc && \
+    ln -sv $DEPLOY_PATHANDTARGET/.screenrc ~/.screenrc && \
+    ln -sv $DEPLOY_PATHANDTARGET/ohmyzsh ~/.oh-my-zsh
+    ln -sv $DEPLOY_PATHANDTARGET/.gitignore_global ~/.gitignore_global
+    ln -sv $DEPLOY_PATHANDTARGET/.gitconfig ~/.gitconfig
+    ln -sv $DEPLOY_PATHANDTARGET/ohmyzsh ~/.oh-my-zsh
 
     if [ $2 = 'work' ]; then
         prepare_work
@@ -58,7 +63,7 @@ function deploy()
     git submodule init $DEPLOY_PATHANDTARGET
     git submodule update $DEPLOY_PATHANDTARGET
 
-    cp ../robbyrussell.zsh-theme-pi ./ohmyzsh/themes/robbyrussell.zsh-theme && \
+    cp -v robbyrussell.zsh-theme-pi $DEPLOY_PATHANDTARGET/ohmyzsh/themes/robbyrussell.zsh-theme && \
 
     cd ~/.vim/bundle/command-t/ruby/command-t/ext/command-t && \
     ruby extconf.rb > /dev/null && \
