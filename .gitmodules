@@ -43,3 +43,9 @@
 [submodule "mac/.vim/bundle/vim-blade"]
 	path = mac/.vim/bundle/vim-blade
 	url = https://github.com/jwalton512/vim-blade.git
+[submodule "mac/ohmyzsh"]
+	path = mac/ohmyzsh
+	url = https://github.com/ohmyzsh/ohmyzsh.git
+[submodule "home/ohmyzsh"]
+	path = home/ohmyzsh
+	url = https://github.com/ohmyzsh/ohmyzsh.git
