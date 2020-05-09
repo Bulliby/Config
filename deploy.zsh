@@ -49,7 +49,6 @@ function prepare()
     ln -sv $DEPLOY_PATHANDTARGET/ohmyzsh ~/.oh-my-zsh
     ln -sv $DEPLOY_PATHANDTARGET/.gitignore_global ~/.gitignore_global
     ln -sv $DEPLOY_PATHANDTARGET/.gitconfig ~/.gitconfig
-    ln -sv $DEPLOY_PATHANDTARGET/ohmyzsh ~/.oh-my-zsh
 
     if [ $2 = 'work' ]; then
         prepare_work
@@ -63,6 +62,7 @@ function deploy()
     git submodule init $DEPLOY_PATHANDTARGET
     git submodule update $DEPLOY_PATHANDTARGET
 
+    ln -sv $DEPLOY_PATHANDTARGET/ohmyzsh ~/.oh-my-zsh
     cp -v robbyrussell.zsh-theme-pi $DEPLOY_PATHANDTARGET/ohmyzsh/themes/robbyrussell.zsh-theme && \
 
     cd ~/.vim/bundle/command-t/ruby/command-t/ext/command-t && \
