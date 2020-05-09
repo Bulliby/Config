@@ -46,6 +46,3 @@
 [submodule "mac/ohmyzsh"]
 	path = mac/ohmyzsh
 	url = https://github.com/ohmyzsh/ohmyzsh.git
-[submodule "home/ohmyzsh"]
-	path = home/ohmyzsh
-	url = https://github.com/ohmyzsh/ohmyzsh.git
