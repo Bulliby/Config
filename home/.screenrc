@@ -1,4 +1,4 @@
-shell "bash"
+shell "zsh"
 startup_message off
 vbell off
 term screen-256color
