@@ -41,14 +41,14 @@ function prepare()
         exit
     fi
 
-    rm -rf ~/.vimrc ~/.vim ~/.screenrc ~/.oh-my-zsh ~/.gitconfig ~/.gitignore_global
+    rm -rf ~/.vimrc ~/.vim ~/.screenrc ~/.oh-my-zsh ~/.gitconfig ~/.gitignore_global ~/.alacritty.yml
 
     ln -sv $DEPLOY_PATHANDTARGET/.vim ~/.vim && \
     ln -sv $DEPLOY_PATHANDTARGET/.vimrc ~/.vimrc && \
     ln -sv $DEPLOY_PATHANDTARGET/.screenrc ~/.screenrc && \
-    ln -sv $DEPLOY_PATHANDTARGET/ohmyzsh ~/.oh-my-zsh
     ln -sv $DEPLOY_PATHANDTARGET/.gitignore_global ~/.gitignore_global
     ln -sv $DEPLOY_PATHANDTARGET/.gitconfig ~/.gitconfig
+    ln -sv $DEPLOY_PATHANDTARGET/.alacritty.yml ~/.alacritty.yml
 
     if [ $2 = 'work' ]; then
         prepare_work
