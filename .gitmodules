@@ -76,3 +76,6 @@
 [submodule "work/.vim/bundle/vim-snippets"]
 	path = work/.vim/bundle/vim-snippets
 	url = https://github.com/honza/vim-snippets.git
+[submodule "work/ohmyzsh"]
+	path = work/ohmyzsh
+	url = https://github.com/ohmyzsh/ohmyzsh.git
