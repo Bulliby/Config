@@ -52,3 +52,27 @@
 [submodule "mac/.vim/bundle/command-t"]
 	path = mac/.vim/bundle/command-t
 	url = https://github.com/wincent/command-t.git
+[submodule "work/.vim/bundle/command-t"]
+	path = work/.vim/bundle/command-t
+	url = https://github.com/wincent/command-t.git
+[submodule "work/.vim/bundle/dracula"]
+	path = work/.vim/bundle/dracula
+	url = https://github.com/dracula/vim.git
+[submodule "work/.vim/bundle/nerdtree"]
+	path = work/.vim/bundle/nerdtree
+	url = https://github.com/preservim/nerdtree.git
+[submodule "work/.vim/bundle/ultisnips"]
+	path = work/.vim/bundle/ultisnips
+	url = https://github.com/SirVer/ultisnips.git
+[submodule "work/.vim/bundle/vim-airline"]
+	path = work/.vim/bundle/vim-airline
+	url = https://github.com/vim-airline/vim-airline.git
+[submodule "work/.vim/bundle/vim-blade"]
+	path = work/.vim/bundle/vim-blade
+	url = https://github.com/jwalton512/vim-blade.git
+[submodule "work/.vim/bundle/vim-javascript"]
+	path = work/.vim/bundle/vim-javascript
+	url = https://github.com/pangloss/vim-javascript.git
+[submodule "work/.vim/bundle/vim-snippets"]
+	path = work/.vim/bundle/vim-snippets
+	url = https://github.com/honza/vim-snippets.git
