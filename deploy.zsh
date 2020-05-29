@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 usage()
 {
@@ -12,7 +12,7 @@ set_variable()
 {
     local varname=$1
     shift
-    if [ -z "${!varname}" ]; then
+    if [ -n "${varname}" ]; then
         eval "$varname=\"$@\""
     else
         echo "Error: $varname already set"
@@ -73,6 +73,7 @@ function deploy()
         echo "The depoy function failed"
     fi
 }
+
 
 while getopts 'p:t:?h' c
 do
