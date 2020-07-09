@@ -62,14 +62,21 @@ function deploy()
     git submodule init $DEPLOY_PATHANDTARGET
     git submodule update $DEPLOY_PATHANDTARGET
 
+    curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+    
     ln -sv $DEPLOY_PATHANDTARGET/ohmyzsh ~/.oh-my-zsh
     cp -v robbyrussell.zsh-theme-pi $DEPLOY_PATHANDTARGET/ohmyzsh/themes/robbyrussell.zsh-theme && \
 
-    cd ~/.vim/bundle/command-t/ruby/command-t/ext/command-t && \
-    ruby extconf.rb > /dev/null && \
-    make > /dev/null
+    ruby -v
+    
+    if [ $? = "0" ]; then
+        cd ~/.vim/bundle/command-t/ruby/command-t/ext/command-t && \
+        ruby extconf.rb > /dev/null && \
+        make > /dev/null
+    else
+        echo "Ruby isn't installed and command-t haven't been configured"
+    fi
 
-    curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
     if [ $? -ne 0 ]; then
         echo "The depoy function failed"

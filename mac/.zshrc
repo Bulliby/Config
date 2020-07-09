@@ -95,4 +95,3 @@ alias vue-cli="/home/bulliby/dev/web/vue-cli/node_modules/@vue/cli/bin/vue.js"
 export LFS=/mnt/lfs
 alias a="php artisan"
 alias glar='grep -rn --exclude-dir="vendor" --exclude-dir="node_module" --exclude="tags"'
-source /usr/share/nvm/init-nvm.sh
