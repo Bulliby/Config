@@ -52,7 +52,7 @@ function prepare()
 
     if [ $2 = 'work' ]; then
         prepare_work
-    elif [ $2 = 'home' ]; then
+    elif [ $2 = 'home' -o $2 = 'mac' ]; then
         prepare_home
     fi
 }
@@ -68,6 +68,8 @@ function deploy()
     cd ~/.vim/bundle/command-t/ruby/command-t/ext/command-t && \
     ruby extconf.rb > /dev/null && \
     make > /dev/null
+
+    curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
     if [ $? -ne 0 ]; then
         echo "The depoy function failed"
