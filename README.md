@@ -3,7 +3,7 @@
 ## Installation
 
 ```shell
-bash deploy.zsh -t home -p ~/DotFiles
+zsh deploy.zsh -t home -p ~/DotFiles
 ```
 
 * Vim,Zsh, Git Files used at home

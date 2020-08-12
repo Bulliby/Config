@@ -6,7 +6,7 @@
 "    By: bulliby <wellsguillaume@gmail.com>              /   ____/_  _  __     "
 "                                                       /    \  _\ \/ \/ /     "
 "    Created: 2017/09/26 19:56:48 by bulliby            \     \_\ \     /      "
-"    Updated: 2020/07/06 13:08:59 by bulliby             \________/\/\_/       "
+"    Updated: 2020/08/12 20:28:34 by bulliby             \________/\/\_/       "
 "                                                                              "
 " **************************************************************************** "
 
@@ -42,6 +42,7 @@
 :noremap <leader>f :CommandT<CR>
 :noremap <leader>b :CommandTBuffer<CR>
 :noremap <leader>t :CommandTTag<CR>
+:noremap <leader>l :CommandTLine<CR>
 " }}}
 
 " Auto commands (comment snippet wrap fold quickfix) {{{
@@ -123,7 +124,7 @@ augroup END
 " Windows Buffers {{{
 :noremap <leader>n :NERDTreeToggle<CR>
 :noremap <leader>q :q <CR>
-:noremap <leader>x :bd <CR>
+:noremap <leader>x :bp <CR> :bd# <CR>
 :noremap <leader>w :w <CR>
 :noremap <leader>g :tabprev <CR>
 :noremap <leader>h :tabnext <CR>
