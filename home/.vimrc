@@ -6,7 +6,7 @@
 "    By: bulliby <wellsguillaume@gmail.com>              /   ____/_  _  __     "
 "                                                       /    \  _\ \/ \/ /     "
 "    Created: 2017/09/26 19:56:48 by bulliby            \     \_\ \     /      "
-"    Updated: 2020/08/12 20:28:34 by bulliby             \________/\/\_/       "
+"    Updated: 2020/09/16 21:20:18 by bulliby             \________/\/\_/       "
 "                                                                              "
 " **************************************************************************** "
 
@@ -14,31 +14,18 @@
 :let mapleader=","
 :let maplocalleader=","
 
-" Mapping {{{
-"j:nnoremap _ ddkP
-"j:nnoremap - ddp
-"j:inoremap <c-d> <esc>ddi
-":inoremap <c-x> <esc>xi
-"supressed for completion stuff
-":inoremap <c-u> <esc>veUi
-":nnoremap <c-u> veU
-:inoreabbrev @@ wellsguillaume@gmail.com
-":vnoremap <leader>" <esc>`<i"<esc>`>la"<esc>
-":vnoremap <leader>' <esc>`<i'<esc>`>la'<esc>
-":vnoremap <leader>< <esc>`<i<<esc>`>la><esc>
 :inoremap jk <esc>
-":onoremap ip( :<C-U>normal! F)vi(<cr>
-":onoremap in( :<C-U>normal! f(vi(<CR>
-":onoremap in" :<C-U>normal! f"vi"<CR>
-":onoremap ip" :<C-U>normal! F"vi"<CR>
-":onoremap in' :<C-U>normal! f'vi'<CR>
-":onoremap ip' :<C-U>normal! F'vi'<CR>
+
+" VIM
+"
 :nnoremap <leader>ev :vsplit ~/.vimrc<CR>
+:nnoremap <leader>sv :source ~/dev/Tools/DotFiles/home/.vimrc<CR>
 :nnoremap <leader>he :help quickref.txt<CR>
 :nnoremap <leader>re :bufdo checktime<CR>
-:nnoremap <leader>sv :source ~/dev/Tools/DotFiles/home/.vimrc<CR>
 :nnoremap <leader>sp :vsplit $HOME/.vim/bundle/vim-snippets/UltiSnips<CR>
-"::nnoremap <leader>; mqA;<ESC>`q
+
+"Commant T
+"
 :noremap <leader>f :CommandT<CR>
 :noremap <leader>b :CommandTBuffer<CR>
 :noremap <leader>t :CommandTTag<CR>
