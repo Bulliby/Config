@@ -96,6 +96,5 @@ alias vi="vim"
 export LFS=/mnt/lfs
 alias a="php artisan"
 alias glar='grep -rn --exclude-dir="vendor" --exclude-dir="node_module" --exclude="tags"'
-source /usr/share/nvm/init-nvm.sh
 alias grep="grep --color=always"
 alias projects="cat ~/projects | sort -t '|' -k 2"
