@@ -6,7 +6,7 @@
 "    By: bulliby <wellsguillaume@gmail.com>              /   ____/_  _  __     "
 "                                                       /    \  _\ \/ \/ /     "
 "    Created: 2017/09/26 19:56:48 by bulliby            \     \_\ \     /      "
-"    Updated: 2020/09/16 21:20:18 by bulliby             \________/\/\_/       "
+"    Updated: 2020/10/31 19:09:49 by bulliby             \________/\/\_/       "
 "                                                                              "
 " **************************************************************************** "
 
@@ -18,8 +18,8 @@
 
 " VIM
 "
-:nnoremap <leader>ev :vsplit ~/.vimrc<CR>
-:nnoremap <leader>sv :source ~/dev/Tools/DotFiles/home/.vimrc<CR>
+:nnoremap <leader>ev :vsplit $HOME/vimrc<CR>
+:nnoremap <leader>sv :source $HOME/dev/DotFiles/home/.vimrc<CR>
 :nnoremap <leader>he :help quickref.txt<CR>
 :nnoremap <leader>re :bufdo checktime<CR>
 :nnoremap <leader>sp :vsplit $HOME/.vim/bundle/vim-snippets/UltiSnips<CR>
@@ -147,5 +147,3 @@ let g:UltiSnipsEditSplit="vertical"
 "Avoid annoying higlithing
 let g:dracula_italic = 0
 colorscheme dracula
-
-nnoremap <silent> <F8> :TlistToggle<CR>

@@ -49,6 +49,7 @@ function prepare()
     ln -sv $DEPLOY_PATHANDTARGET/.gitignore_global ~/.gitignore_global
     ln -sv $DEPLOY_PATHANDTARGET/.gitconfig ~/.gitconfig
     ln -sv $DEPLOY_PATHANDTARGET/.alacritty.yml ~/.alacritty.yml
+    ln -sv $DEPLOY_PATHANDTARGET/toprc ~/.config/procps/toprc
 
     if [ $2 = 'work' ]; then
         prepare_work
