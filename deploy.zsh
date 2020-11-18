@@ -2,99 +2,101 @@
 
 usage()
 {
-    echo "Usage: Deploy.zsh -p PATH  -t TARGET"
+    echo "Usage: Deploy.zsh -p PATH -t TARGET"
     echo "PATH where to install the Dot environnement"
-    echo "TARGET wich environement you choose between HOME and WORK"
-    exit 2
+    echo "TARGET wich environement you choose between HOME, WORK and MAC"
+
+    exit 1
 }
 
-set_variable()
+prepare_work()
 {
-    local varname=$1
-    shift
-    if [ -n "${varname}" ]; then
-        eval "$varname=\"$@\""
-    else
-        echo "Error: $varname already set"
-        usage
-    fi
+    local deploy_path=$1
+
+    rm -v ~/.bashrc
+    ln -fnsv $deploy_path/.bashrc ~/.bashrc
+} 
+
+prepare_home()
+{
+    local deploy_path=$1
+
+    rm -v ~/.zshrc
+    ln -fnsv $deploy_path/.zshrc ~/.zshrc
+
+    ln -fnsv $deploy_path/ohmyzsh ~/.oh-my-zsh
+    cp -v robbyrussell.zsh-theme-pi $deploy_path/ohmyzsh/themes/robbyrussell.zsh-theme
 }
 
-function prepare_work()
+clean()
 {
-    rm ~/.bashrc
-    ln -s $DEPLOY_PATHANDTARGET/.bashrc ~/.bashrc
+    local deploy_path=$1
+
+    rm -vf ~/.vimrc ~/.screenrc ~/.gitconfig ~/.gitignore_global ~/.alacritty.yml ~/.config/procps/toprc\
+        && rm -vrf ~/.vim ~/.oh-my-zsh
+
+    rm -rf $deploy_path/.vim $deploy_path/.oh-my-zsh
 }
 
-function prepare_home()
+prepare()
 {
-    rm ~/.zshrc
-    ln -s $DEPLOY_PATHANDTARGET/.zshrc ~/.zshrc
-}
+    local deploy_path=$1
 
-function prepare()
-{
-    DEPLOY_PATHANDTARGET=$1/$2
+    clean $deploy_path
 
-    if [ $? -ne 0 ]; then
-        echo "The combo path target doesn't exist"
-        exit
-    fi
-
-    rm -rf ~/.vimrc ~/.vim ~/.screenrc ~/.oh-my-zsh ~/.gitconfig ~/.gitignore_global ~/.alacritty.yml
-
-    ln -sv $DEPLOY_PATHANDTARGET/.vim ~/.vim && \
-    ln -sv $DEPLOY_PATHANDTARGET/.vimrc ~/.vimrc && \
-    ln -sv $DEPLOY_PATHANDTARGET/.screenrc ~/.screenrc && \
-    ln -sv $DEPLOY_PATHANDTARGET/.gitignore_global ~/.gitignore_global
-    ln -sv $DEPLOY_PATHANDTARGET/.gitconfig ~/.gitconfig
-    ln -sv $DEPLOY_PATHANDTARGET/.alacritty.yml ~/.alacritty.yml
-    ln -sv $DEPLOY_PATHANDTARGET/toprc ~/.config/procps/toprc
+    ln -fnsv $deploy_path/.vim ~/.vim && \
+    ln -fnsv $deploy_path/.vimrc ~/.vimrc && \
+    ln -fnsv $deploy_path/.screenrc ~/.screenrc && \
+    ln -fnsv $deploy_path/.gitignore_global ~/.gitignore_global && \
+    ln -fnsv $deploy_path/.gitconfig ~/.gitconfig && \
+    ln -fnsv $deploy_path/.alacritty.yml ~/.alacritty.yml && \
+    ln -fnsv $deploy_path/toprc ~/.config/procps/toprc
 
     if [ $2 = 'work' ]; then
-        prepare_work
+        prepare_work $deploy_path
     elif [ $2 = 'home' -o $2 = 'mac' ]; then
-        prepare_home
+        prepare_home $deploy_path
     fi
 }
 
-function deploy()
+deploy()
 {
-    git submodule init $DEPLOY_PATHANDTARGET
-    git submodule update $DEPLOY_PATHANDTARGET
+    local deploy_path=$1
 
+    git submodule init $deploy_path
+    git submodule update $deploy_path
+
+    mkdir -v ~/.vim/autoload
     curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
     
-    ln -sv $DEPLOY_PATHANDTARGET/ohmyzsh ~/.oh-my-zsh
-    cp -v robbyrussell.zsh-theme-pi $DEPLOY_PATHANDTARGET/ohmyzsh/themes/robbyrussell.zsh-theme && \
-
     ruby -v
-    
-    if [ $? = "0" ]; then
+    if [ $? -eq 0 ]; then
         cd ~/.vim/bundle/command-t/ruby/command-t/ext/command-t && \
         ruby extconf.rb > /dev/null && \
         make > /dev/null
     else
         echo "Ruby isn't installed and command-t haven't been configured"
     fi
-
-
-    if [ $? -ne 0 ]; then
-        echo "The depoy function failed"
-    fi
 }
 
 
-while getopts 'p:t:?h' c
+local clean=0
+while getopts 'p:t:c?h' c
 do
     case $c in
-        p) set_variable DEPLOY_PATH $OPTARG ;;
-        t) set_variable DEPLOY_TARGET $OPTARG ;;
+        p) home_path="$OPTARG" ;;
+        t) target="$OPTARG" ;;
+        c) clean=1 ;;
         h|?) usage ;; esac
 done
 
-[ -z "$DEPLOY_PATH" ] && usage
-[ -z "$DEPLOY_TARGET" ] && usage
+if [ $clean -ne 0 ]; then
+    clean
+    exit
+else
+    [ -z $target ] && usage
+    [ -z $home_path ] && usage
+fi
 
-prepare $DEPLOY_PATH $DEPLOY_TARGET
-deploy
+prepare "$home_path/$target" "$target"
+deploy "$home_path/$target"

@@ -99,3 +99,4 @@ alias glar='grep -rn --exclude-dir="vendor" --exclude-dir="node_module" --exclud
 alias grep="grep --color=always"
 alias projects="cat ~/projects | sort -t '|' -k 2"
 alias symfony="/home/bulliby/.symfony/bin/symfony"
+source $HOME/dev/shell/rm_secure/rm_secure.zsh
