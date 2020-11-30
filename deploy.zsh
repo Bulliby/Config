@@ -24,8 +24,6 @@ prepare_home()
     rm -v ~/.zshrc
     ln -fnsv $deploy_path/.zshrc ~/.zshrc
 
-    ln -fnsv $deploy_path/ohmyzsh ~/.oh-my-zsh
-    cp -v robbyrussell.zsh-theme-pi $deploy_path/ohmyzsh/themes/robbyrussell.zsh-theme
 }
 
 clean()
@@ -69,6 +67,9 @@ deploy()
     mkdir -v ~/.vim/autoload
     curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
     
+    ln -fnsv $deploy_path/ohmyzsh ~/.oh-my-zsh
+    cp -v robbyrussell.zsh-theme-pi $deploy_path/ohmyzsh/themes/robbyrussell.zsh-theme
+
     ruby -v
     if [ $? -eq 0 ]; then
         cd ~/.vim/bundle/command-t/ruby/command-t/ext/command-t && \
