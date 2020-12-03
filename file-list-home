@@ -1,0 +1,8 @@
+.vimrc
+.screenrc
+.gitconfig
+.gitignore_global
+.alacritty.yml
+.config/procps/toprc
+.vim
+.oh-my-zsh

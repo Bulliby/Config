@@ -18,7 +18,7 @@
 
 " VIM
 "
-:nnoremap <leader>ev :vsplit $HOME/vimrc<CR>
+:nnoremap <leader>ev :vsplit $HOME/.vimrc<CR>
 :nnoremap <leader>sv :source $HOME/dev/DotFiles/home/.vimrc<CR>
 :nnoremap <leader>he :help quickref.txt<CR>
 :nnoremap <leader>re :bufdo checktime<CR>
