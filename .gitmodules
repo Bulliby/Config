@@ -79,3 +79,7 @@
 [submodule "work/ohmyzsh"]
 	path = work/ohmyzsh
 	url = https://github.com/ohmyzsh/ohmyzsh.git
+[submodule "shell"]
+	path = shell
+	url = https://github.com/Bulliby/shell.git
+	branch = main
