@@ -6,7 +6,7 @@
 "    By: bulliby <wellsguillaume@gmail.com>              /   ____/_  _  __     "
 "                                                       /    \  _\ \/ \/ /     "
 "    Created: 2017/09/26 19:56:48 by bulliby            \     \_\ \     /      "
-"    Updated: 2020/05/04 19:15:17 by wells               \________/\/\_/       "
+"    Updated: 2020/09/16 18:22:05 by wells               \________/\/\_/       "
 "                                                                              "
 " **************************************************************************** "
 
@@ -36,7 +36,7 @@
 :nnoremap <leader>ev :vsplit ~/.vimrc<CR>
 :nnoremap <leader>he :help quickref.txt<CR>
 :nnoremap <leader>re :bufdo checktime<CR>
-:nnoremap <leader>sv :source ~/dev/Tools/DotFiles/.vimrc<CR>
+:nnoremap <leader>sv :source /home/lyon/wells/dev/DotFiles/work/.vimrc<CR>
 :nnoremap <leader>sp :vsplit $HOME/.vim/bundle/vim-snippets/UltiSnips<CR>
 "::nnoremap <leader>; mqA;<ESC>`q
 :noremap <leader>f :CommandT<CR>
@@ -51,6 +51,7 @@
 :   autocmd BufNewFile,BufRead *.html setlocal wrap
 :   autocmd BufNewFile,BufRead *.html.twig setlocal wrap
 :   autocmd BufNewFile,BufRead *.vue setlocal nowrap
+:   autocmd BufNewFile,BufRead *.php setlocal nowrap
 :aug END
 
 :aug comment
@@ -74,6 +75,7 @@
 :   autocmd FileType php,cpp                iabbrev <buffer> _pr private
 :   autocmd FileType javascript,vue         iabbrev <buffer> C console.log()<ESC>2h
 :   autocmd FileType javascript,php,c,cpp   iabbrev <buffer> F function()<ESC>2h
+:   autocmd FileType class.inc              iabbrev <buffer> _d var_dump("Hello");die()<ESC>
 :aug END
 
 :aug quickfix
@@ -125,7 +127,7 @@ augroup END
 " Windows Buffers {{{
 :noremap <leader>n :NERDTreeToggle<CR>
 :noremap <leader>q :q <CR>
-:noremap <leader>x :bd <CR>
+:noremap <leader>x :bp<CR>:bd#<CR>
 :noremap <leader>w :w <CR>
 :noremap <leader>g :tabprev <CR>
 :noremap <leader>h :tabnext <CR>

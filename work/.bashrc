@@ -33,23 +33,27 @@ alias gd='git diff'
 alias gl='git log --graph --decorate --oneline --all'
 alias glol="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --all"
 
-pushd()
-{
-    if [ $# -eq 0 ]; then
-        DIR="${HOME}"
-    else
-        DIR="$1"
-    fi
-
-    builtin pushd "${DIR}" > /dev/null
-}
-
-alias cd='pushd'
-
 alias a="php artisan"
-alias gnos='grep -nr --color=always --exclude-dir="dist" --exclude-dir="node_modules"  --exclude-dir="logs" --exclude-dir="cache" --exclude="tags" --exclude="vendor"'
-alias glar='grep -nr --color=always --exclude-dir="node_modules"  --exclude-dir="storage"  --exclude-dir="vendor" --exclude-dir="nova" --exclude-dir="public" --exclude="tags"'
+alias see="a migrate:refresh && a db:seed"
+alias gnos='grep -nr --color=always --exclude-dir="dist" --exclude-dir="node_modules"  --exclude-dir="logs" --exclude-dir="cache" --exclude="tags" --exclude-dir="vendor" --exclude-dir="local/vendor" --exclude="*min*.js" --exclude="*min*.scss" --exclude=".php_cs.cache"'
+alias glar='grep -nr --color=always --exclude-dir="node_modules"  --exclude-dir="storage"  --exclude-dir="vendor" --exclude-dir="nova" --exclude-dir="public" --exclude="tags" --exclude-dir="storage"'
+alias d="dirs -v"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$HOME/vim/src:$HOME/.rbenv/versions/2.2.2/bin:$PATH"
 umask 0002
+export GITHUB_TOKEN="toto"
+export GITHUB_USER="toto"
+
+PATH="/home/lyon/wells/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/lyon/wells/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/lyon/wells/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/lyon/wells/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/lyon/wells/perl5"; export PERL_MM_OPT;
+
+stty -ixon
+
+jd()
+{
+    cd "$(dirs -l -"$1")"
+}
