@@ -97,9 +97,9 @@ augroup END
 :set title
 :set smartcase
 :set hlsearch
+:set expandtab
 :set novisualbell
 :set noerrorbells
-:set expandtab
 :set backspace=indent,eol,start
 :set nobackup
 :set noswapfile
