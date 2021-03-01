@@ -8,7 +8,7 @@ E_MISSING_VAR=13
 E_UNAVAILABLE_ENV=14
 E_MISSING_DEPENDNCIES=15
 
-set -ex
+set -e
 
 usage()
 {
@@ -27,7 +27,7 @@ UsagePrint
     exit $E_BADARGS
 }
 
-options=$(getopt -a -n "$(basename $0)" -l "target:,help,verbose" -- "t:hv" "$@")
+options=$(getopt -a -n "$(basename $0)" -l "target:,help,verbose,debug" -- "t:hvd" "$@")
 
 if [ $? -ne 0 ]; then
 	usage
@@ -41,8 +41,10 @@ do
 		-t) target="$2"; shift ;;
         -v) verbose=1 ;;
 		-h) usage ;;
+		-d) debug=1 ;;
 		--target) target="$2"; shift ;;
 		--help) usage ;;
+		--debug) debug=1 ;;
         --verbose) verbose=1 ;;
 	esac
 	shift
@@ -60,13 +62,14 @@ restore_stderr_stdout()
 
 clean()
 {
-    rm -vf "$HOME/{.vimrc,.screenrc,.gitconfig,.gitignore_global,.alacritty.yml,.config/procps/toprc,.bashrc,.zshrc}"
+    rm -vf $HOME/{.vimrc,.screenrc,.gitconfig,.gitignore_global,.alacritty.yml,.config/procps/toprc,.bashrc,.zshrc}
     # L'expansion avec les accolad ne semble pas fonctionner pour les dossiers
     rm -rf "$HOME/.oh-my-zsh" "$HOME/.vim"
 }
 
 deploy()
 {
+ echo $ACTIVE_PATH
     ln -sv $ACTIVE_PATH/.vim $HOME/.vim && \
     ln -sv $ACTIVE_PATH/.vimrc $HOME/.vimrc && \
     ln -sv $ACTIVE_PATH/.screenrc $HOME/.screenrc && \
@@ -93,6 +96,11 @@ deploy()
 	else
 		echo "Ruby isn't installed and command-t haven't been configured"
 	fi
+}
+
+debug()
+{
+	set -x
 }
 
 if [ ! -f $(basename $0) ]; then
@@ -127,7 +135,7 @@ fi
 
 # Here we close stdin stdout after have made copy (11,12)
 # for restoring them
-if [[ $verbose -eq 0 ]]; then
+if [[ $verbose -eq 0 && $debug -ne 1 ]]; then
 	close_stderr_stdout
 fi
 
@@ -140,6 +148,6 @@ fi
 clean
 deploy
 
-if [[ $verbose -eq 1 ]]; then
+if [[ $verbose -eq 1 && $debug -ne 1 ]]; then
     restore_stderr_stdout
 fi
