@@ -69,7 +69,6 @@ clean()
 
 deploy()
 {
- echo $ACTIVE_PATH
     ln -sv $ACTIVE_PATH/.vim $HOME/.vim && \
     ln -sv $ACTIVE_PATH/.vimrc $HOME/.vimrc && \
     ln -sv $ACTIVE_PATH/.screenrc $HOME/.screenrc && \
