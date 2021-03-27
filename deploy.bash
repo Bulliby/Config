@@ -62,7 +62,11 @@ restore_stderr_stdout()
 
 clean()
 {
-    rm -vf $HOME/{.vimrc,.screenrc,.gitconfig,.gitignore_global,.alacritty.yml,.zshrc,.config/procps/toprc,.bashrc}
+    rm -vf $HOME/{.vimrc,.screenrc,.gitconfig,.gitignore_global,.alacritty.yml,.zshrc}
+    rm -vf $HOME/.config/procps/toprc
+    rm -vf $HOME/.bashrc
+    rm -vf $HOME/.bashrc
+
     # L'expansion avec les accolad ne semble pas fonctionner pour les dossiers
     rm -vrf "$HOME/.oh-my-zsh" "$HOME/.vim"
 }
@@ -70,6 +74,7 @@ clean()
 
 deploy()
 {
+    mkdir -vp $HOME/.config/procps/toprc
     ln -sv $ACTIVE_PATH/.vim $HOME/.vim && \
     ln -sv $ACTIVE_PATH/.vimrc $HOME/.vimrc && \
     ln -sv $ACTIVE_PATH/.screenrc $HOME/.screenrc && \
