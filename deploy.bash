@@ -74,7 +74,7 @@ clean()
 
 deploy()
 {
-    mkdir -vp $HOME/.config/procps/toprc
+    mkdir -vp $HOME/.config/procps
     ln -sv $ACTIVE_PATH/.vim $HOME/.vim && \
     ln -sv $ACTIVE_PATH/.vimrc $HOME/.vimrc && \
     ln -sv $ACTIVE_PATH/.screenrc $HOME/.screenrc && \
