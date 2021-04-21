@@ -138,9 +138,10 @@ fi
 
 # Here we close stdin stdout after have made copy (11,12)
 # for restoring them
-if [[ $verbose -eq 0 && $debug -ne 1 ]]; then
-	close_stderr_stdout
-fi
+# Doesn't do the things any more need to check why TODO
+#if [[ $verbose -eq 0 && $debug -ne 1 ]]; then
+#	close_stderr_stdout
+#fi
 
 ACTIVE_PATH="$PWD/$target"
 
@@ -151,6 +152,6 @@ fi
 clean
 deploy
 
-if [[ $verbose -eq 1 && $debug -ne 1 ]]; then
-    restore_stderr_stdout
-fi
+#if [[ $verbose -eq 1 && $debug -ne 1 ]]; then
+#    restore_stderr_stdout
+#fi
