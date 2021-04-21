@@ -63,12 +63,10 @@ restore_stderr_stdout()
 clean()
 {
     rm -vf $HOME/{.vimrc,.screenrc,.gitconfig,.gitignore_global,.alacritty.yml,.zshrc}
-    rm -vf $HOME/.config/procps/toprc
-    rm -vf $HOME/.bashrc
     rm -vf $HOME/.bashrc
 
     # L'expansion avec les accolad ne semble pas fonctionner pour les dossiers
-    rm -vrf "$HOME/.oh-my-zsh" "$HOME/.vim"
+    rm -vrf "$HOME/.oh-my-zsh" "$HOME/.vim" $HOME/.config/procps
 }
 
 
