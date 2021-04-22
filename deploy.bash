@@ -66,30 +66,30 @@ clean()
     rm -vf $HOME/.bashrc
 
     # L'expansion avec les accolad ne semble pas fonctionner pour les dossiers
-    rm -vrf "$HOME/.oh-my-zsh" "$HOME/.vim" $HOME/.config/procps
+    rm -rf "$HOME/.oh-my-zsh" "$HOME/.vim" $HOME/.config/procps
 }
 
 
 deploy()
 {
     mkdir -vp $HOME/.config/procps
-    ln -sv $ACTIVE_PATH/.vim $HOME/.vim && \
-    ln -sv $ACTIVE_PATH/.vimrc $HOME/.vimrc && \
-    ln -sv $ACTIVE_PATH/.screenrc $HOME/.screenrc && \
-    ln -sv $ACTIVE_PATH/.gitignore_global $HOME/.gitignore_global && \
-    ln -sv $ACTIVE_PATH/.gitconfig $HOME/.gitconfig && \
-    ln -sv $ACTIVE_PATH/.alacritty.yml $HOME/.alacritty.yml && \
-    ln -sv $ACTIVE_PATH/toprc $HOME/.config/procps/toprc && \
-    ln -sv $ACTIVE_PATH/.bashrc $HOME/.bashrc && \
-    ln -sv $ACTIVE_PATH/.zshrc $HOME/.zshrc
+    ln -vs $ACTIVE_PATH/.vim $HOME/.vim && \
+    ln -vs $ACTIVE_PATH/.vimrc $HOME/.vimrc && \
+    ln -vs $ACTIVE_PATH/.screenrc $HOME/.screenrc && \
+    ln -vs $ACTIVE_PATH/.gitignore_global $HOME/.gitignore_global && \
+    ln -vs $ACTIVE_PATH/.gitconfig $HOME/.gitconfig && \
+    ln -vs $ACTIVE_PATH/.alacritty.yml $HOME/.alacritty.yml && \
+    ln -vs $ACTIVE_PATH/toprc $HOME/.config/procps/toprc && \
+    ln -vs $ACTIVE_PATH/.bashrc $HOME/.bashrc && \
+    ln -vs $ACTIVE_PATH/.zshrc $HOME/.zshrc
 
-	git submodule init $ACTIVE_PATH
-	git submodule update $ACTIVE_PATH
+	git submodule --quiet init $ACTIVE_PATH
+	git submodule --quiet update $ACTIVE_PATH
 
 	curl -LSso $HOME/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
-	ln -snv $ACTIVE_PATH/ohmyzsh $HOME/.oh-my-zsh
-	cp -v robbyrussell.zsh-theme-pi $HOME/.oh-my-zsh/themes/robbyrussell.zsh-theme
+	ln -vsn $ACTIVE_PATH/ohmyzsh $HOME/.oh-my-zsh
+	cp  -v robbyrussell.zsh-theme-pi $HOME/.oh-my-zsh/themes/robbyrussell.zsh-theme
 
 	ruby -v
 	if [ $? -eq 0 ]; then
@@ -117,7 +117,6 @@ if [ -z $HOME ]; then
     exit $E_MISSING_VAR
 fi
 
-echo $target
 if [[ $target != "home" && $target != "mac" && $target != "work" ]]; then
     echo "Your environment is not available"
     echo 'You have choice between mac,work,home'
@@ -139,6 +138,7 @@ fi
 # Here we close stdin stdout after have made copy (11,12)
 # for restoring them
 # Doesn't do the things any more need to check why TODO
+# We dont close the stdout to be able to print the spinner
 #if [[ $verbose -eq 0 && $debug -ne 1 ]]; then
 #	close_stderr_stdout
 #fi
@@ -149,9 +149,30 @@ if [[ $debug -eq 1 ]]; then
     debug
 fi
 
-clean
-deploy
+if [[ $debug -eq 1 || $verbose -eq 1 ]]; then
+    clean
+    deploy
+else
+    (
+        while [ true ]; do
+            echo -n "."
+            sleep 0.3
+        done
+    )&
+
+    clean > /dev/null
+    deploy > /dev/null
+fi
 
 #if [[ $verbose -eq 1 && $debug -ne 1 ]]; then
 #    restore_stderr_stdout
 #fi
+
+#$! give the last background command's PID
+if [[ $debug -ne 1 && $verbose -ne 1 ]]; then
+    kill $!
+fi
+
+#To avoid the % at end of script output
+#It's the newline of echo who do the trix
+echo ""

@@ -3,8 +3,10 @@
 ## Installation
 
 ```shell
-zsh deploy.zsh -t home -p ~/DotFiles
+./deploy.zsh -t home
 ```
+
+Possible environement mac,work,home
 
 * Vim,Zsh, Git Files used at home
 * Gdb style
