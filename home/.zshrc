@@ -87,16 +87,10 @@ source $ZSH/oh-my-zsh.sh
 export EDITOR="vim"
 alias gt="git status"
 alias gl="git log --graph --oneline --decorate --all"
-alias ras="ssh -i /home/bulliby/.ssh/id_rsa_ras bulliby@192.168.0.42"
-alias han="ssh -p 14498 -i /home/bulliby/.ssh/id_hanckock waxer@wellsguillaume.fr"
-alias save="rsync -rtvs --progress --delete --force --exclude 'vendor' --exclude '.git' --exclude 'Trash'  --files-from=.save_rsync ~/ save@192.168.0.42:Guillaume"
+alias han="ssh -p 14498 -i $HOME/.ssh/id_hanckock waxer@wellsguillaume.fr"
 alias bip="echo -e '\a'"
-#alias vue="./node_modules/.bin/encore dev" 
-alias vue-cli="/home/bulliby/dev/web/vue-cli/node_modules/@vue/cli/bin/vue.js"
 alias vi="vim"
-export LFS=/mnt/lfs
 alias a="php artisan"
 alias glar='grep -rn --exclude-dir="vendor" --exclude-dir="node_module" --exclude="tags"'
 alias grep="grep --color=always"
 alias projects="cat ~/projects | sort -t '|' -k 2"
-alias symfony="/home/bulliby/.symfony/bin/symfony"
