@@ -8,8 +8,6 @@ E_MISSING_VAR=13
 E_UNAVAILABLE_ENV=14
 E_MISSING_DEPENDNCIES=15
 
-set -e
-
 usage()
 {
     cat <<UsagePrint
@@ -35,6 +33,7 @@ fi
 
 eval set --$options
 
+
 while [ ! -z "$1" ]
 do
 	case "$1" in
@@ -50,6 +49,11 @@ do
 	shift
 done
 
+v=""
+if [[ $verbose ]]; then
+    v="v"
+fi
+
 close_stderr_stdout()
 {
 	exec 11>&1 12>&2 1>&- 2>&-     
@@ -62,40 +66,46 @@ restore_stderr_stdout()
 
 clean()
 {
-    rm -vf $HOME/{.vimrc,.screenrc,.gitconfig,.gitignore_global,.alacritty.yml,.zshrc}
-    rm -vf $HOME/.bashrc
+    rm -${v}f $HOME/{.vimrc,.screenrc,.gitconfig,.gitignore_global,.alacritty.yml,.zshrc}
+    rm -${v}f $HOME/.bashrc
 
     # L'expansion avec les accolad ne semble pas fonctionner pour les dossiers
-    rm -rf "$HOME/.oh-my-zsh" "$HOME/.vim" $HOME/.config/procps
+    rm -${v}rf "$HOME/.oh-my-zsh" "$HOME/.vim" $HOME/.config/procps
 }
 
 
 deploy()
 {
-    mkdir -vp $HOME/.config/procps
-    ln -vs $ACTIVE_PATH/.vim $HOME/.vim && \
-    ln -vs $ACTIVE_PATH/.vimrc $HOME/.vimrc && \
-    ln -vs $ACTIVE_PATH/.screenrc $HOME/.screenrc && \
-    ln -vs $ACTIVE_PATH/.gitignore_global $HOME/.gitignore_global && \
-    ln -vs $ACTIVE_PATH/.gitconfig $HOME/.gitconfig && \
-    ln -vs $ACTIVE_PATH/.alacritty.yml $HOME/.alacritty.yml && \
-    ln -vs $ACTIVE_PATH/toprc $HOME/.config/procps/toprc && \
-    ln -vs $ACTIVE_PATH/.bashrc $HOME/.bashrc && \
-    ln -vs $ACTIVE_PATH/.zshrc $HOME/.zshrc
+    mkdir -${v}p $HOME/.config/procps
+    ln -${v}s $ACTIVE_PATH/.vim $HOME/.vim && \
+    ln -${v}s $ACTIVE_PATH/.vimrc $HOME/.vimrc && \
+    ln -${v}s $ACTIVE_PATH/.screenrc $HOME/.screenrc && \
+    ln -${v}s $ACTIVE_PATH/.gitignore_global $HOME/.gitignore_global && \
+    ln -${v}s $ACTIVE_PATH/.gitconfig $HOME/.gitconfig && \
+    ln -${v}s $ACTIVE_PATH/.alacritty.yml $HOME/.alacritty.yml && \
+    ln -${v}s $ACTIVE_PATH/toprc $HOME/.config/procps/toprc && \
+    ln -${v}s $ACTIVE_PATH/.bashrc $HOME/.bashrc && \
+    ln -${v}s $ACTIVE_PATH/.zshrc $HOME/.zshrc
 
-	git submodule --quiet init $ACTIVE_PATH
-	git submodule --quiet update $ACTIVE_PATH
+    git submodule $([[ $verbose != 1 ]] && echo "--quiet") init $ACTIVE_PATH
+    git submodule $([[ $verbose != 1 ]] && echo "--quiet") update $ACTIVE_PATH
 
 	curl -LSso $HOME/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
-	ln -vsn $ACTIVE_PATH/ohmyzsh $HOME/.oh-my-zsh
-	cp  -v robbyrussell.zsh-theme-pi $HOME/.oh-my-zsh/themes/robbyrussell.zsh-theme
+	ln -${v}sn $ACTIVE_PATH/ohmyzsh $HOME/.oh-my-zsh
+	cp  $([[ $verbose = 1 ]] && echo "-v") robbyrussell.zsh-theme-pi $HOME/.oh-my-zsh/themes/robbyrussell.zsh-theme
 
-	ruby -v
+    [[ $verbose = 1 ]] && ruby -v || ruby -v > /dev/null
 	if [ $? -eq 0 ]; then
-		cd $HOME/.vim/bundle/command-t/ruby/command-t/ext/command-t && \
-		ruby extconf.rb > /dev/null && \
-		make > /dev/null
+	    cd $HOME/.vim/bundle/command-t/ruby/command-t/ext/command-t
+        if [[ $verbose != 1 ]]; then
+            ruby extconf.rb > /dev/null && make > /dev/null
+        else
+            ruby extconf.rb && make 
+        fi
+	    if [ $? -ne 0 ]; then
+		    echo "Ruby compilation of command-t failed"
+        fi
 	else
 		echo "Ruby isn't installed and command-t haven't been configured"
 	fi
@@ -149,29 +159,31 @@ if [[ $debug -eq 1 ]]; then
     debug
 fi
 
-if [[ $debug -eq 1 || $verbose -eq 1 ]]; then
-    clean
-    deploy
-else
-    (
-        while [ true ]; do
-            echo -n "."
-            sleep 0.3
-        done
-    )&
+clean
+deploy
 
-    clean > /dev/null
-    deploy > /dev/null
-fi
+#    clean
+#    deploy
+#else
+#    (
+#        while [ true ]; do
+#            echo -n "."
+#            sleep 0.3
+#        done
+#    )&
+#
+#    clean > /dev/null
+#    deploy > /dev/null
+#fi
 
 #if [[ $verbose -eq 1 && $debug -ne 1 ]]; then
 #    restore_stderr_stdout
 #fi
 
 #$! give the last background command's PID
-if [[ $debug -ne 1 && $verbose -ne 1 ]]; then
-    kill $!
-fi
+#if [[ $debug -ne 1 && $verbose -ne 1 ]]; then
+#    kill $!
+#fi
 
 #To avoid the % at end of script output
 #It's the newline of echo who do the trix
