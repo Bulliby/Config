@@ -11,8 +11,8 @@
 " **************************************************************************** "
 
 
-:let mapleader=","
-:let maplocalleader=","
+:let mapleader=";"
+:let maplocalleader=";"
 
 " Mapping {{{
 "j:nnoremap _ ddkP
@@ -122,13 +122,13 @@ augroup END
 
 " Windows Buffers {{{
 :noremap <leader>n :NERDTreeToggle<CR>
-:noremap <leader>q :q <CR>
+:noremap <leader>a :q <CR>
 :noremap <leader>x :bd <CR>
-:noremap <leader>w :w <CR>
+:noremap <leader>z :w <CR>
 :noremap <leader>g :tabprev <CR>
 :noremap <leader>h :tabnext <CR>
 :noremap <leader>f <C-W><RIGHT>
-:noremap <leader>a <C-W><LEFT>
+:noremap <leader>q <C-W><LEFT>
 :noremap <leader>s <C-W><DOWN>
 :noremap <leader>d <C-W><UP>
 :noremap <leader>p :set paste!<CR>
