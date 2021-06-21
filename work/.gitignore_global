@@ -1,8 +1,0 @@
-*.swp
-*.o
-*.a
-a.out
-*.so
-.*.swo
-parameters.yml
-tags

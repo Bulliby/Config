@@ -83,3 +83,7 @@
 	path = home/shell
 	url = https://github.com/Bulliby/shell.git
 	branch = main
+[submodule "home/.vim/bundle/vim-commentary"]
+	path = home/.vim/bundle/vim-commentary
+	url = https://github.com/tpope/vim-commentary.git
+	branch = master
